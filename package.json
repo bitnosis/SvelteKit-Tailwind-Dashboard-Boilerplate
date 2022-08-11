@@ -5,10 +5,12 @@
 		"dev": "svelte-kit dev",
 		"build": "svelte-kit build",
 		"preview": "svelte-kit preview",
+		"build:fontawesome": "mkdir -p public/assets/vendor/@fortawesome/fontawesome-free/webfonts && mkdir -p public/assets/vendor/@fortawesome/fontawesome-free/css && cp -a ./node_modules/@fortawesome/fontawesome-free/webfonts public/assets/vendor/@fortawesome/fontawesome-free/ && cp ./node_modules/@fortawesome/fontawesome-free/css/all.min.css public/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css",
 		"lint": "prettier --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
 		"format": "prettier --write --plugin-search-dir=. ."
 	},
 	"devDependencies": {
+		"@supabase/supabase-js": "^1.35.6",
 		"@sveltejs/adapter-static": "^1.0.0-next.29",
 		"@sveltejs/kit": "^1.0.0-next.301",
 		"@typescript-eslint/eslint-plugin": "^5.16.0",
@@ -28,11 +30,13 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@supabase/supabase-js": "github:supabase/supabase-js",
 		"@sveltejs/adapter-netlify": "^1.0.0-next.19",
 		"@sveltejs/adapter-vercel": "next",
 		"@tailwindcss/forms": "^0.5.0",
 		"chart.js": "^3.9.1",
+		"fetch-ponyfill": "^7.1.0",
+		"js-cookie": "^3.0.1",
+		"luxon": "^3.0.1",
 		"murmurhash-js": "^1.0.0"
 	}
 }

@@ -1,5 +1,6 @@
 import preprocess from 'svelte-preprocess';
 import vercel from '@sveltejs/adapter-vercel';
+const dev = process.env.NODE_ENV === 'development';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -23,6 +24,12 @@ const config = {
 			// instead of creating a single one for the entire app
 			split: false
 		}),
+		/*
+		vite: {
+			ssr: {
+				noExternal: dev ? [] : ['@supabase/supabase-js']
+			}
+		},*/
 		appDir: '_app',
 		files: {
 			assets: 'static'

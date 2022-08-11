@@ -1,13 +1,13 @@
 <script>
-	import Home from '$lib/Pages/Home.svelte';
-	import Experiments from '$lib/Pages/Experiments.svelte';
 </script>
 
 <svelte:head>
-	<title>Hello world</title>
+	<title>Home Page Landing Page</title>
 	<meta name="robots" content="noindex nofollow" />
 	<html lang="en" />
 </svelte:head>
 
-<Home />
-<Experiments />
+<div class="mt-20 w-full mx-auto text-center">
+	<h1 class="text-4xl mb-8">Your Homepage Would Go Here</h1>
+	<a href="/auth/login" class="rounded-md bg-gray-200 p-4 py-2 font-semibold">LOGIN</a>
+</div>
