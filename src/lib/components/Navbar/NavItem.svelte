@@ -1,8 +1,8 @@
 <script>
 	// Props
-	export let icon;
-	export let title;
-	export let link = '';
+	// Props
+	export let linkData;
+	const { icon, title, link, count } = linkData;
 </script>
 
 <li>

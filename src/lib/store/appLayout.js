@@ -1,15 +1,22 @@
 import { writable, get } from 'svelte/store';
 
 // The name of the app
-export const appName = 'Your App Name Here';
+export const appInfo = {
+    name: 'Your App Name Here',
+    brand: 'Brand Name',
+    logo: 'https://flowbite.com/docs/images/logo.svg',
+    website: 'http://yourwebsite.com'
+};
+
 // The app theme
 export const theme = writable({
     colors: {
-        header: 'text-gray-900 bg-gray-200',
         theme: 'bg-emerald-900 text-black',
+        header: 'text-gray-900 bg-gray-200',
+        sidebar: 'text-gray-900 border-r border-gray-300 shadow-md dark:bg-gray-800 dark:text-white  bg-gray-50 ',
+        sideBarIcons: 'text-gray-600 dark:text-gray-200',
         loginBbackground: 'bg-gray-200',
-        mainBackground: 'bg-gray-200',
-        sidebar: ''
+        mainBackground: 'bg-gray-200'
     },
     dark: false
 });
@@ -20,7 +27,14 @@ export const layout = writable({
     hasSidebar: true,
     sidebarState: {
         shown: true,
-        collapsed: false
+        collapsed: false,
+        cta: true,
+        cta_data: {
+            link: '/experiments',
+            linkText: 'New Experiments Feature',
+            label: 'New Feature',
+            body: 'This is where you could put a CTA of a new feature or something, and pull it from the database to attach to the sidebar cta'
+        }
     },
     headerState: {
         shown: true
@@ -28,6 +42,7 @@ export const layout = writable({
 });
 
 // The apps navigation menu
+// The 'count' property on these can be updated, lets say in relation to whatever model/data that page refers to.  To show such things as Inbox count, etc
 export const pages = [{
         title: 'Login',
         link: '/auth/login',
@@ -53,19 +68,54 @@ export const pages = [{
         hideIfAuth: false
     },
     {
-        title: 'Only auth',
-        link: '/anotherpage',
-        icon: 'user',
-        count: 22,
+        title: 'Logout',
+        link: '/auth/logout',
+        icon: 'right-from-bracket',
+        count: null,
         auth: true,
         hideIfAuth: false
     }
 ];
 
 // Functions for the layout of the app
-export const toggleSidebar = () => {
+export const toggleComponent = (component) => {
     layout.update(($layout) => {
-        $layout.sidebarState.shown = !$layout.sidebarState.shown;
+        switch (component) {
+            case 'headerRemove':
+                $layout.hasHeader = !$layout.hasHeader;
+                break;
+            case 'sidebarRemove':
+                $layout.hasSidebar = !$layout.hasSidebar;
+                break;
+            case 'sidebarHide':
+                $layout.sidebarState.shown = !$layout.sidebarState.shown;
+                break;
+            case 'sidebarCollapse':
+                $layout.sidebarState.collapsed = !$layout.sidebarState.collapsed;
+                break;
+        }
+
         return $layout;
+    });
+};
+
+export const closeSidebarCTA = () => {
+    layout.update(($layout) => {
+        $layout.sidebarState.cta = false;
+        return $layout;
+    });
+};
+
+export const setTheme = (isDark) => {
+    theme.update(($theme) => {
+        $theme.dark = isDark;
+        return $theme;
+    });
+};
+
+export const toggleDarkMode = () => {
+    theme.update(($theme) => {
+        $theme.dark = !$theme.dark;
+        return $theme;
     });
 };
