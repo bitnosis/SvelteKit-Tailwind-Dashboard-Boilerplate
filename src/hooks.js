@@ -9,12 +9,11 @@ export function getSession(event) {
         user,
         theme
     };*/
-    let session = parseCookie(cookies).session;
-    if (session == 'undefined') {
+    if (cookies) {
+        return parseCookie(cookies).session;
+    } else {
         return null;
     }
-
-    return parseCookie(cookies).session ? parseCookie(cookies).session : null;
 }
 /*
 export const handle = async({ event, resolve }) => {
