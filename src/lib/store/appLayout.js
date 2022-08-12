@@ -5,7 +5,7 @@ export const appInfo = {
     name: 'Your App Name Here',
     brand: 'Brand Name',
     logo: 'https://flowbite.com/docs/images/logo.svg',
-    website: 'http://yourwebsite.com'
+    website: '/'
 };
 
 // The layout for the app ( Sidebar and Header tracking)
@@ -26,7 +26,8 @@ export const layout = writable({
     headerState: {
         showMenuItems: false,
         showDarkMode: false,
-        shown: true
+        shown: true,
+        height: 'h-8'
     }
 });
 
@@ -51,6 +52,11 @@ export const toggleComponent = (component) => {
                 break;
             case 'darkModeSwitch':
                 $layout.headerState.showDarkMode = !$layout.headerState.showDarkMode;
+                break;
+            case 'headerHeight':
+                $layout.headerState.height === 'h-16' ?
+                    ($layout.headerState.height = 'h-8') :
+                    ($layout.headerState.height = 'h-16');
                 break;
         }
 

@@ -12,11 +12,11 @@
 	let headerColors = 'bg-gray-200 dark:bg-gray-900 dark:text-gray-100 text-gray-600';
 </script>
 
-<nav class="flex items-center p-4 text-semibold px-2 mb-6 sm:px-4 py-2.5 {headerColors}">
-	<div class="w-full flex flex-wrap justify-between items-center">
+<nav class="flex items-center p-4  text-semibold px-2 mb-6 sm:px-4 py-2.5 {headerColors}">
+	<div class="w-full flex flex-wrap {$layout.headerState.height} justify-between items-center">
 		<div class="inline flex">
 			{#if $layout.hasSidebar}
-				<button on:click={() => toggleComponent('sidebarCollapse')} class="p-1 mr-4">
+				<button on:click={() => toggleComponent('sidebarCollapse')} class="mr-4">
 					<i class="fa fa-bars" /></button
 				>
 			{/if}
@@ -28,7 +28,7 @@
 
 		<div id="navbar-default" class="w-full md:block md:w-auto">
 			<ul
-				class="flex flex-col p-3 mt-5 rounded-lg border border-gray-100 md:flex-row md:space-x-12 md:mt-0 md:text-sm md:font-medium md:border-0"
+				class="flex flex-col rounded-lg border border-gray-100 md:flex-row md:space-x-12 md:mt-0 md:text-sm md:font-medium md:border-0"
 			>
 				{#if $layout.headerState.showDarkMode}
 					<DarkModeToggle />
