@@ -12,6 +12,49 @@ To get it to work with supabase you need to have your own account....and include
 VITE_SVELTE_APP_SUPABASE_URL=https://yoursupabase.com
 VITE_SVELTE_APP_SUPABASE_ANON_KEY=yoursupabasekey
 
+This is setup to deploy on both Netlify or Vercel.
+Its setup for netlify right now...but you can just change the adapter to make it work on Vercel (although I had some issues)
+
+## Netlify
+```
+ In svelte.config.js
+ 
+ import netlify from '@sveltejs/adapter-netlify';
+ kit: {
+   adapter: netlify()
+        
+        ....
+
+```
+
+
+## Vercel
+```
+ In svelte.config.js
+ 
+ import vercel from '@sveltejs/adapter-vercel';
+ kit: {
+   adapter: vercel({
+            // if true, will deploy the app using edge functions
+            // (https://vercel.com/docs/concepts/functions/edge-functions)
+            // rather than serverless functions
+            edge: true,
+
+            // an array of dependencies that esbuild should treat
+            // as external when bundling functions
+            external: [],
+
+            // if true, will split your app into multiple functions
+            // instead of creating a single one for the entire app
+            split: false
+        }),
+   }
+        
+        ....
+
+```
+
+
 
 ## Install
 ```
