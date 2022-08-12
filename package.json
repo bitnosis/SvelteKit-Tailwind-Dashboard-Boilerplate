@@ -31,7 +31,7 @@
     },
     "type": "module",
     "dependencies": {
-        "@sveltejs/adapter-netlify": "^1.0.0-next.19",
+        "@sveltejs/adapter-netlify": "^1.0.0-next.71",
         "@sveltejs/adapter-vercel": "next",
         "@tailwindcss/forms": "^0.5.0",
         "chart.js": "^3.9.1",

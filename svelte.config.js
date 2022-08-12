@@ -1,5 +1,5 @@
 import preprocess from 'svelte-preprocess';
-import vercel from '@sveltejs/adapter-vercel';
+import netlify from '@sveltejs/adapter-netlify';
 const dev = process.env.NODE_ENV === 'development';
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -10,7 +10,7 @@ const config = {
 
     kit: {
         // hydrate the <div id="svelte"> element in src/app.html
-        adapter: vercel({
+        /*adapter: vercel({
             // if true, will deploy the app using edge functions
             // (https://vercel.com/docs/concepts/functions/edge-functions)
             // rather than serverless functions
@@ -23,7 +23,8 @@ const config = {
             // if true, will split your app into multiple functions
             // instead of creating a single one for the entire app
             split: false
-        }),
+        }),*/
+        adapter: netlify(),
         /*
         vite: {
         	ssr: {
