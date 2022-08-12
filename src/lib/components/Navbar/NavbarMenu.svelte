@@ -6,7 +6,6 @@
 	import { layout, toggleComponent } from '$lib/store/appLayout';
 	// Components
 	import NavItem from './NavItem.svelte';
-	import LogoutLink from '../LogoutLink.svelte';
 	// Props
 	export let pages;
 </script>
@@ -25,7 +24,7 @@
 
 	{#if $layout.headerState.dropdownMenuOpen}
 		<div
-			class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-gray-900 ring-1 ring-black ring-opacity-5 focus:outline-none"
+			class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-gray-700 ring-1 ring-black ring-opacity-5 focus:outline-none"
 			role="menu"
 			aria-orientation="vertical"
 			aria-labelledby="menu-button"
@@ -33,6 +32,7 @@
 			transition:slide
 		>
 			<div class="py-1" role="none">
+				<NavItem linkData={{ link: '/app', title: 'Dashboard', icon: 'house' }} />
 				{#if pages}
 					{#each pages as link (link.link)}
 						{#if $user && link.auth}
@@ -42,7 +42,7 @@
 						{/if}
 					{/each}
 				{/if}
-				<LogoutLink />
+				<NavItem isLogout />
 			</div>
 		</div>
 	{/if}
