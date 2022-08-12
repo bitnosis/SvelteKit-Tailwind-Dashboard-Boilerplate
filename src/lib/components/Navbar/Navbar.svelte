@@ -15,7 +15,7 @@
 
 <nav class="flex items-center p-4  text-semibold px-2 mb-6 sm:px-4 py-1.5 {headerColors}">
 	<div class="w-full flex flex-wrap {$layout.headerState.height} justify-between items-center">
-		<div class="inline flex">
+		<div class="inline flex mt-[-8px]">
 			{#if $layout.hasSidebar}
 				<button on:click={() => toggleComponent('sidebarCollapse')} class="mr-4">
 					<i class="fa fa-bars" /></button
@@ -26,7 +26,7 @@
 			</a>
 		</div>
 
-		<div class="inline flex">
+		<div class="inline flex mt-0.5">
 			{#if $layout.headerState.showDarkMode}
 				<div><DarkModeToggle /></div>
 			{/if}

@@ -18,7 +18,7 @@
 			id="menu-button"
 			on:click={() => toggleComponent('dropdownMenu')}
 		>
-			<i class="fas fa-circle-chevron-down" /></button
+			<i class="mt-[-6px] text-xl fas fa-circle-chevron-down" /></button
 		>
 	</div>
 
