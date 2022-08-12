@@ -4,7 +4,7 @@
 	import { layout, toggleComponent, onKeyDown } from '$lib/store/appLayout.js';
 	// Variables
 	let innerWidth = window.innerWidth;
-	// Reactive useEffect
+	// Reactive listener
 	$: {
 		if (
 			innerWidth <= 800 &&
@@ -27,6 +27,5 @@
 </script>
 
 <!-- I couldnt implement this in SvelteKit, since SSR has no access to the window object -->
-
 
 <svelte:window on:keydown={onKeyDown} bind:innerWidth />

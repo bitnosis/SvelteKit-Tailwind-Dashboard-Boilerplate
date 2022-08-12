@@ -13,6 +13,7 @@
 	}
 </script>
 
+<!-- Browser Render -->
 <script>
 	import '../style.css';
 	// Svelte
@@ -25,10 +26,8 @@
 	import { SvelteToast } from '@zerodevx/svelte-toast';
 	import Navbar from '$lib/components/Navbar/Navbar.svelte';
 	import Sidebar from '$lib/components/Sidebar/Sidebar.svelte';
-
 	// Props
 	export let session;
-
 	// Functions
 	onMount(() => {
 		if (session) {

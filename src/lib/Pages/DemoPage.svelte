@@ -2,7 +2,6 @@
 <script>
 	// Svelte
 	import { onMount } from 'svelte';
-
 	// Props
 	export let number;
 	export let result;

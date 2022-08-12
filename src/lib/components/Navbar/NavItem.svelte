@@ -4,8 +4,9 @@
 	// Props
 	export let linkData = { icon: 'key', title: 'Logout' };
 	export let isLogout = false;
+	// Variables
 	const { icon, title, link, count } = linkData;
-
+	// Functions
 	const logout = () => {
 		logoutUser();
 		window.location.replace('/');

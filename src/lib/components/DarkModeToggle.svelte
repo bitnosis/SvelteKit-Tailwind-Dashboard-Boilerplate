@@ -1,11 +1,13 @@
 <script>
+	// Stores
 	import { user, setTheme } from '$lib/store/userStore';
+	// Variables
 	let isDark;
-
+	// Reactive listener
 	$: {
 		$user.theme == 'dark' ? (isDark = true) : (isDark = false);
 	}
-
+	// Functions
 	function toggleTheme() {
 		if ($user.theme == 'dark') {
 			setTheme('light');

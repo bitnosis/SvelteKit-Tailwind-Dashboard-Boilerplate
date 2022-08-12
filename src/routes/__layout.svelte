@@ -26,6 +26,7 @@
 		setTheme();
 	});
 
+	// Functions
 	const logout = async (e) => {
 		const { error } = await supabase.auth.signOut();
 		logoutUser();

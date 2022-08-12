@@ -1,9 +1,11 @@
 <script>
+	// Stores
 	import { layout } from '$lib/store/appLayout';
 	import { logoutUser } from '$lib/store/userStore';
+	// Props
 	export let iconColor = '';
 	export let sidebarHover = '';
-
+	// Functions
 	const logout = () => {
 		logoutUser();
 		window.location.replace('/');
