@@ -4,9 +4,9 @@ a Sveltekit starter template using Tailwind (JIT).
 
 ## Install
 ```
-git clone https://github.com/twiny/sveltekit-tailwind.git my-app
+git clone https://github.com/twiny/sveltekit-tailwind.git sveltekit-tailwind-supabase
 
-cd my-app
+cd sveltekit-tailwind-supabase
 
 npm install
 ```
@@ -16,3 +16,4 @@ npm install
 
 ## Build
 `npm run build`
+
