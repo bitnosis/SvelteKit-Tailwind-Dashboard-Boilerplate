@@ -4,12 +4,16 @@
 	import { user } from '$lib/store/userStore';
 	import { toggleComponent } from '$lib/store/appLayout';
 	import { success, warning, error } from '$lib/utils/toastTheme';
+	// Components
+	import SvelteLogo from '$lib/components/svgs/SvelteLogo.svelte';
 </script>
 
-<div class="w-full p-10">
-	<h1 class="text-center text-4xl mt-10 mb-10 text-gray-400 dark:text-white">
-		Dashboard Page Here
-	</h1>
+<div class="w-full p-20">
+	<div class="text-center" style="width:600px;margin:auto;margin-top:-80px;margin-bottom:-350px;">
+		<div class="ml-20">
+			<SvelteLogo />
+		</div>
+	</div>
 
 	<p class="text-gray-400">
 		User Info :

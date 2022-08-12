@@ -5,11 +5,11 @@
 	let isDark;
 	// Reactive listener
 	$: {
-		$user.theme == 'dark' ? (isDark = true) : (isDark = false);
+		$user.theme === 'dark' ? (isDark = true) : (isDark = false);
 	}
 	// Functions
 	function toggleTheme() {
-		if ($user.theme == 'dark') {
+		if ($user.theme === 'dark') {
 			setTheme('light');
 			isDark = false;
 		} else {

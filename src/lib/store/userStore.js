@@ -2,12 +2,16 @@ import { writable } from 'svelte/store';
 import Cookies from 'js-cookie';
 import { browser } from '$app/env';
 
-export const user = writable({ user: null, theme: null });
+export const user = writable({ user: null, theme: 'dark' });
 
 // Store updaters
 export const updateUser = (theSessionUser) => {
     user.set({ user: theSessionUser.user, theme: theSessionUser.theme });
-    setTheme(theSessionUser.theme);
+    if (theSessionUser.theme == null || !theSessionUser) {
+        setTheme('dark');
+    } else {
+        setTheme(theSessionUser.theme);
+    }
 };
 
 export const setTheme = (theme = null) => {
@@ -35,16 +39,16 @@ export const setTheme = (theme = null) => {
 
 // Authentication - Login / Logout and Cookies
 export const loginUser = (newUser) => {
-    user.set({ user: newUser.id, theme: 'light' });
+    user.set({ user: newUser.id, theme: 'dark' });
     newUser.user === null ? removeCookie('user') : setCookie('user', newUser.id);
     if (!Cookies.get('theme')) {
-        setCookie('theme', 'light');
+        setCookie('theme', 'dark');
     }
 };
 
 export const logoutUser = async() => {
     await removeCookie('user');
-    user.set({ user: null, theme: 'light' });
+    user.set({ user: null, theme: 'dark' });
     if (browser) {
         window.location.replace('/');
     }
