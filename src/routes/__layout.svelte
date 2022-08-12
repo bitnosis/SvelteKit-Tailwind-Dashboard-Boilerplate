@@ -17,7 +17,7 @@
 	// Svelte
 	import { onMount } from 'svelte';
 	// Stores
-	import { supabase } from '$lib/api/supabaseClient';
+	import { supabase } from '$lib/utils/supabaseClient';
 	import { logoutUser, setTheme } from '$lib/store/userStore';
 	// Components
 	import DarkModeToggle from '$lib/components/DarkModeToggle.svelte';

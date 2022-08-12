@@ -15,7 +15,7 @@
 <script>
 	// Stores
 	import { loginUser } from '$lib/store/userStore';
-	import { supabase } from '$lib/api/supabaseClient';
+	import { supabase } from '$lib/utils/supabaseClient';
 
 	// Components
 	import LoginForm from '$lib/components/LoginForm.svelte';
