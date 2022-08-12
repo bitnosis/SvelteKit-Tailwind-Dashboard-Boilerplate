@@ -69,8 +69,7 @@
 <style>
 	:root {
 		--toastContainerTop: auto;
-		--toastContainerRight: 4rem;
-		--toastContainerBottom: 4rem;
-		--toastContainerLeft: calc(50vw - 8rem);
+		--toastContainerRight: 2rem;
+		--toastContainerBottom: 2rem;
 	}
 </style>

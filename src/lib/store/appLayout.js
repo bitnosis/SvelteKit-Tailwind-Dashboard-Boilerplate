@@ -2,8 +2,8 @@ import { writable } from 'svelte/store';
 
 // The name of the app
 export const appInfo = {
-    name: 'Your App Name Here',
-    brand: 'Brand Name',
+    name: 'SvelteKit Admin',
+    brand: 'SKAdmin',
     logo: 'https://flowbite.com/docs/images/logo.svg',
     website: '/'
 };
