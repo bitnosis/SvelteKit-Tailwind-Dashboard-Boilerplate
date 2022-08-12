@@ -1,5 +1,9 @@
 import { parseCookie } from '$lib/utils/parseCookie';
 
+export async function handle({ event, resolve }) {
+    return resolve(event, { ssr: false });
+}
+
 export const getSession = async(event) => {
     let cookies = event.request.headers.get('cookie');
     const user = parseCookie(cookies).user ? parseCookie(cookies).user : null;

@@ -7,12 +7,13 @@
 	// Components
 	import NavItem from './NavItem.svelte';
 	import DarkModeToggle from '../DarkModeToggle.svelte';
+	import NavbarMenu from './NavbarMenu.svelte';
 
 	// Variables
 	let headerColors = 'bg-gray-200 dark:bg-gray-900 dark:text-gray-100 text-gray-600';
 </script>
 
-<nav class="flex items-center p-4  text-semibold px-2 mb-6 sm:px-4 py-2.5 {headerColors}">
+<nav class="flex items-center p-4  text-semibold px-2 mb-6 sm:px-4 py-1.5 {headerColors}">
 	<div class="w-full flex flex-wrap {$layout.headerState.height} justify-between items-center">
 		<div class="inline flex">
 			{#if $layout.hasSidebar}
@@ -20,30 +21,16 @@
 					<i class="fa fa-bars" /></button
 				>
 			{/if}
-
 			<a href="/app" class="inline flex items-center">
 				<span class=" text-xl font-bold whitespace-nowrap ">{appInfo.name}</span>
 			</a>
 		</div>
 
-		<div id="navbar-default" class="w-full md:block md:w-auto">
-			<ul
-				class="flex flex-col rounded-lg border border-gray-100 md:flex-row md:space-x-12 md:mt-0 md:text-sm md:font-medium md:border-0"
-			>
-				{#if $layout.headerState.showDarkMode}
-					<DarkModeToggle />
-				{/if}
-
-				{#if pages && $layout.headerState.showMenuItems}
-					{#each pages as link (link.link)}
-						{#if $user && link.auth}
-							<NavItem linkData={link} />
-						{:else if !link.auth && !link.hideIfAuth}
-							<NavItem linkData={link} />
-						{/if}
-					{/each}
-				{/if}
-			</ul>
+		<div class="inline flex">
+			{#if $layout.headerState.showDarkMode}
+				<div><DarkModeToggle /></div>
+			{/if}
+			<NavbarMenu {pages} />
 		</div>
 	</div>
 </nav>

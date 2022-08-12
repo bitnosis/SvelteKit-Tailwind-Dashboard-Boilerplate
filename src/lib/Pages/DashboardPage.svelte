@@ -20,7 +20,7 @@
 			<button
 				on:click={() => toggleComponent('header')}
 				class="rounded-md mb-2 bg-gray-200 p-4 py-1 "
-				>Header Toggle
+				>Header Toggle - Ctrl H
 			</button> <br />
 			<button
 				on:click={() => toggleComponent('headerHeight')}
@@ -31,18 +31,15 @@
 		<div>
 			<button
 				on:click={() => toggleComponent('sidebar')}
-				class="rounded-md bg-gray-200 mb-2 p-4 py-1 ">Sidebar Toggle</button
+				class="rounded-md bg-gray-200 mb-2 p-4 py-1 ">Sidebar Toggle - Ctrl A</button
 			> <br />
 			<button
 				on:click={() => toggleComponent('sidebarCollapse')}
-				class="rounded-md bg-gray-200 p-4 py-1 ">Sidebar Collapse</button
+				class="rounded-md bg-gray-200 p-4 py-1 ">Sidebar Collapse - Ctrl F</button
 			>
 		</div>
 
 		<div>
-			<button on:click={() => toggleComponent('menu')} class="rounded-md bg-gray-200 mb-2 p-4 py-1 "
-				>Header Menu</button
-			><br />
 			<button
 				on:click={() => toggleComponent('darkModeSwitch')}
 				class="rounded-md bg-gray-200 p-4 py-1 ">Show Dark Mode Switch</button

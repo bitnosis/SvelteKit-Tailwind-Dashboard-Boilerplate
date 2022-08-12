@@ -9,15 +9,17 @@
 	import NavItemSidebar from './NavItemSidebar.svelte';
 
 	// Variables
-	let sideBarColors = 'shadow-lg text-gray-700 bg-gray-100 dark:text-gray-100 dark:bg-gray-900';
-	let sideBarIconColor = 'dark:text-gray-500 text-gray-400 dark:hover:text-white';
-	let sideBarHover = 'hover:bg-gray-700 hover:text-white';
+	let sideBarColors = 'shadow-lg text-gray-700 bg-gray-100 dark:text-gray-400 dark:bg-gray-900';
+	let sideBarIconColor =
+		'dark:text-gray-500 text-gray-400 hover:text-gray-200 dark:hover:text-orange-400';
+	let sideBarHover =
+		'hover:bg-gray-200 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-orange-400 ';
 </script>
 
-<aside class={$layout.sidebarState.collapsed ? 'w-20' : 'w-64'} aria-label="Sidebar">
+<aside class={$layout.sidebarState.collapsed ? 'w-16' : 'w-64'} aria-label="Sidebar">
 	<div class="overflow-y-auto no-scrollbar h-screen py-5 px-4 {sideBarColors}">
-		<a href={appInfo.website} class="flex items-center pl-2.5 mb-6">
-			<img src={appInfo.logo} class="mr-3 h-6 sm:h-8" alt="App logo" />
+		<a href={appInfo.website} class="flex items-center mb-4">
+			<img src={appInfo.logo} class="mr-3 " alt="App logo" />
 			{#if !$layout.sidebarState.collapsed}
 				<span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white text-black"
 					>{appInfo.brand}</span
@@ -25,7 +27,7 @@
 			{/if}
 		</a>
 
-		<ul class="space-y-4">
+		<ul class="space-y-2 mt-6">
 			{#if pages}
 				{#each pages as link (link.link)}
 					{#if $user && link.auth}

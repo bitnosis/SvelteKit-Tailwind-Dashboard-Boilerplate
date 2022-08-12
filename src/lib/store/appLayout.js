@@ -15,6 +15,7 @@ export const layout = writable({
     sidebarState: {
         shown: true,
         collapsed: false,
+        autoCollapse: true,
         cta: true,
         cta_data: {
             link: '/newfeature',
@@ -24,6 +25,7 @@ export const layout = writable({
         }
     },
     headerState: {
+        dropdownMenuOpen: false,
         showMenuItems: false,
         showDarkMode: true,
         shown: true,
@@ -35,6 +37,9 @@ export const layout = writable({
 export const toggleComponent = (component) => {
     layout.update(($layout) => {
         switch (component) {
+            case 'dropdownMenu':
+                $layout.headerState.dropdownMenuOpen = !$layout.headerState.dropdownMenuOpen;
+                break;
             case 'header':
                 $layout.hasHeader = !$layout.hasHeader;
                 break;
@@ -69,4 +74,21 @@ export const closeSidebarCTA = () => {
         $layout.sidebarState.cta = false;
         return $layout;
     });
+};
+
+export const onKeyDown = (event) => {
+    event.preventDefault();
+    if (event.metaKey || event.ctrlKey) {
+        switch (event.key.toLowerCase()) {
+            case 'a':
+                toggleComponent('sidebar');
+                break;
+            case 'f':
+                toggleComponent('sidebarCollapse');
+                break;
+            case 'h':
+                toggleComponent('header');
+                break;
+        }
+    }
 };
