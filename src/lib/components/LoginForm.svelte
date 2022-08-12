@@ -10,20 +10,19 @@
 	let password = 'testtest';
 </script>
 
-<div class="container pt-20 mx-auto h-full">
+<div class="container pt-36 mx-auto h-full">
 	<div class="flex content-center items-center justify-center h-full">
-		<div class="w-full  px-5">
+		<div class="w-full lg:w-1/2 p-5">
 			<div
-				class={'relative flex flex-col min-w-0 break-words w-full mb-3 shadow-lg rounded-lg border-0 ' +
-					boxColor}
+				class="relative flex flex-col min-w-0 break-words w-full mb-3 shadow-md rounded-xl border-0 {boxColor}"
 			>
-				<div class="rounded-t px-4 py-6">
+				<div class="rounded-t pt-6 p-3">
 					<div class="text-center mb-3">
 						<h6 class="text-gray-200 text-sm font-bold">{formTitle}</h6>
 					</div>
-					<hr class="mt-6 border-b-1 border-gray-300" />
+					<hr class="mt-6 border-b-1 border-gray-400 dark:border-gray-600" />
 				</div>
-				<div class="flex-auto px-10 lg:px-10 py-10">
+				<div class="flex-auto px-10 pt-5 pb-10">
 					<form on:submit|preventDefault={() => handleForm(email, password)}>
 						<div class="relative w-full mb-6">
 							<label class="block uppercase text-gray-200 text-xs font-bold mb-2" for="grid-email">
@@ -78,12 +77,13 @@
 				</div>
 			</div>
 			<div class="flex flex-wrap">
+				<!--
 				<div class="w-1/2">
 					<a href="/auth/forgotpassword" class="text-gray-600 dark:text-gray-400">
 						<small>Forgot password?</small>
 					</a>
-				</div>
-				<div class="w-1/2 text-right">
+				</div>-->
+				<div class="w-full">
 					<!-- Link to somewhere else goes here -->
 					<slot />
 				</div>

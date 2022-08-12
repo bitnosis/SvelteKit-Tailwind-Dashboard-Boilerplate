@@ -2,7 +2,7 @@
 <script>
 	// Stores
 	import { user } from '$lib/store/userStore';
-	import { layout, toggleComponent } from '$lib/store/appLayout';
+	import { toggleComponent } from '$lib/store/appLayout';
 </script>
 
 <div class="w-full p-10">

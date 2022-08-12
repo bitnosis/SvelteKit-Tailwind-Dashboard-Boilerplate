@@ -25,7 +25,7 @@ export const layout = writable({
     },
     headerState: {
         showMenuItems: false,
-        showDarkMode: false,
+        showDarkMode: true,
         shown: true,
         height: 'h-8'
     }
