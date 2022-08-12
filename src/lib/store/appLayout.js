@@ -69,6 +69,7 @@ export const toggleComponent = (component) => {
     });
 };
 
+// Close the Call To Action in the sidebar
 export const closeSidebarCTA = () => {
     layout.update(($layout) => {
         $layout.sidebarState.cta = false;
@@ -76,6 +77,8 @@ export const closeSidebarCTA = () => {
     });
 };
 
+// Listen to KeyDown for toggling - not implemented since SvelteKit SSR cant implement <svelte:window> properly.
+// Which is where this was binding
 export const onKeyDown = (event) => {
     event.preventDefault();
     if (event.metaKey || event.ctrlKey) {

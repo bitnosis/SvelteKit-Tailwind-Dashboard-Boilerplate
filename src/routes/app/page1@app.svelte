@@ -1,4 +1,4 @@
-<!-- Browser Render -->
+<!-- SSR data loading -->
 <script context="module">
 	export async function load({ fetch }) {
 		const response = await fetch('/api/demofetch');
@@ -10,9 +10,11 @@
 	}
 </script>
 
+<!-- Browser render -->
 <script>
 	// Components
 	import DemoPage from '$lib/Pages/DemoPage.svelte';
+	// Props
 	export let result;
 </script>
 

@@ -27,7 +27,7 @@
 			<span class="flex-1 ml-3 whitespace-nowrap">{title}</span>
 			{#if count}
 				<span
-					class="inline-flex justify-center items-center p-3 px-4 ml-3 w-3 h-3 text-sm font-medium text-blue-600 bg-blue-200 rounded-full dark:bg-blue-900 dark:text-blue-200"
+					class="inline-flex justify-center items-center p-3 px-4 ml-3 w-3 h-3 text-sm font-medium text-blue-800 bg-blue-300 rounded-full dark:bg-yellow-600 dark:text-gray-900"
 					>{count}</span
 				>
 			{/if}

@@ -1,6 +1,7 @@
 <script>
 	// Components
 	import DemoPage from '$lib/Pages/DemoPage.svelte';
+	// Props
 	export let result;
 </script>
 

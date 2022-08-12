@@ -1,5 +1,6 @@
 <!-- Browser Render -->
 <script>
+	// Svelte
 	import { onMount } from 'svelte';
 
 	// Props

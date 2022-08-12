@@ -58,6 +58,7 @@
 				<Navbar />
 			{/if}
 			<main class="p-8">
+				<!-- Main App/Dashboard Pages slot in here -->
 				<slot />
 			</main>
 		</div>

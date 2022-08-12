@@ -1,3 +1,4 @@
+<!-- This was to be used as a resize and keydown handler, maybe someone lese can figure it out? -->
 <script>
 	// Stores
 	import { layout, toggleComponent, onKeyDown } from '$lib/store/appLayout.js';
@@ -24,5 +25,8 @@
 		}
 	}
 </script>
+
+<!-- I couldnt implement this in SvelteKit, since SSR has no access to the window object -->
+
 
 <svelte:window on:keydown={onKeyDown} bind:innerWidth />

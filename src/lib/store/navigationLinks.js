@@ -28,7 +28,7 @@ export const pages = [{
         title: 'Page 3',
         link: '/app/page3',
         icon: 'house',
-        count: null,
+        count: 3,
         auth: true,
         hideIfAuth: false
     }
