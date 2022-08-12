@@ -31,4 +31,4 @@
 	});
 </script>
 
-<DashboardPage {session} />
+<DashboardPage />

@@ -3,7 +3,6 @@
 	// Stores
 	import { user } from '$lib/store/userStore';
 	// Props
-	export let session;
 	export let number;
 </script>
 

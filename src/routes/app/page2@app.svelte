@@ -31,4 +31,4 @@
 	});
 </script>
 
-<DemoPage number={2} {session} />
+<DemoPage number={2} />

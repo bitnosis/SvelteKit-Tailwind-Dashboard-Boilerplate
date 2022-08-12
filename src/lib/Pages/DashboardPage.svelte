@@ -3,8 +3,6 @@
 	// Stores
 	import { user } from '$lib/store/userStore';
 	import { layout, toggleComponent } from '$lib/store/appLayout';
-	// Props
-	export let session;
 </script>
 
 <div class="w-full p-10">
