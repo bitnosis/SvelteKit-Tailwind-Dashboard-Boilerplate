@@ -7,11 +7,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer"
     />
     <script src="https://cdn.tailwindcss.com"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1" /> %svelte.head%
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> %sveltekit.head%
 </head>
 
 <body class="">
-    %svelte.body%
+    <div id="appContainer" class="h-screen bg-gray-50 dark:bg-gray-800">
+        %sveltekit.body%
+    </div>
 </body>
 
 </html>

@@ -1,12 +1,21 @@
 <script>
 	// Stores
-	import { layout, theme, pages, appInfo, closeSidebarCTA } from '$lib/store/appLayout';
-	import { user } from '$lib/store/mainStore.js';
+	import { user } from '$lib/store/userStore.js';
+	import { layout, appInfo, closeSidebarCTA } from '$lib/store/appLayout';
+	import { pages } from '$lib/store/navigationLinks.js';
+
+	// Components
+	import LogoutLink from '../LogoutLink.svelte';
 	import NavItemSidebar from './NavItemSidebar.svelte';
+
+	// Variables
+	let sideBarColors = 'shadow-lg text-gray-700 bg-gray-100 dark:text-gray-100 dark:bg-gray-900';
+	let sideBarIconColor = 'dark:text-gray-500 text-gray-400 dark:hover:text-white';
+	let sideBarHover = 'hover:bg-gray-700 hover:text-white';
 </script>
 
 <aside class={$layout.sidebarState.collapsed ? 'w-20' : 'w-64'} aria-label="Sidebar">
-	<div class="overflow-y-auto no-scrollbar h-screen py-5 px-4 {$theme.colors.sidebar}">
+	<div class="overflow-y-auto no-scrollbar h-screen py-5 px-4 {sideBarColors}">
 		<a href={appInfo.website} class="flex items-center pl-2.5 mb-6">
 			<img src={appInfo.logo} class="mr-3 h-6 sm:h-8" alt="App logo" />
 			{#if !$layout.sidebarState.collapsed}
@@ -16,27 +25,35 @@
 			{/if}
 		</a>
 
-		<ul class="space-y-2">
+		<ul class="space-y-4">
 			{#if pages}
 				{#each pages as link (link.link)}
 					{#if $user && link.auth}
 						<NavItemSidebar
 							collapsed={$layout.sidebarState.collapsed}
-							iconColor={$theme.colors.sideBarIcons}
+							iconColor={sideBarIconColor}
+							sidebarHover={sideBarHover}
 							linkData={link}
 						/>
 					{:else if !link.auth && !link.hideIfAuth}
 						<NavItemSidebar
 							collapsed={$layout.sidebarState.collapsed}
-							iconColor={$theme.colors.sideBarIcons}
+							iconColor={sideBarIconColor}
+							sidebarHover={sideBarHover}
 							linkData={link}
 						/>
 					{/if}
 				{/each}
 			{/if}
+
+			<LogoutLink iconColor={sideBarIconColor} sidebarHover={sideBarHover} />
 		</ul>
 		{#if $layout.sidebarState.cta && !$layout.sidebarState.collapsed}
-			<div id="dropdown-cta" class="p-4 mt-8 bg-blue-50 rounded-lg dark:bg-blue-900" role="alert">
+			<div
+				id="dropdown-cta"
+				class="p-4 mt-8 bg-blue-200 shadow-sm rounded-lg dark:bg-blue-900"
+				role="alert"
+			>
 				<div class="flex items-center mb-3">
 					<span
 						class="bg-orange-100 text-orange-800 text-sm font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-orange-200 dark:text-orange-900"

@@ -1,19 +1,18 @@
 <script>
 	// Stores
-	import {
-		layout,
-		theme,
-		pages,
-		appInfo,
-		toggleDarkMode,
-		toggleComponent
-	} from '$lib/store/appLayout';
-	import { user } from '$lib/store/mainStore.js';
+	import { user, setTheme } from '$lib/store/userStore.js';
+	import { pages } from '$lib/store/navigationLinks.js';
+	import { layout, appInfo, toggleComponent } from '$lib/store/appLayout';
+
 	// Components
 	import NavItem from './NavItem.svelte';
+	import DarkModeToggle from '../DarkModeToggle.svelte';
+
+	// Variables
+	let headerColors = 'bg-gray-200 dark:bg-gray-900 dark:text-gray-100 text-gray-600';
 </script>
 
-<nav class="flex items-center p-4 text-semibold px-2 mb-6 sm:px-4 py-2.5 {$theme.colors.header}">
+<nav class="flex items-center p-4 text-semibold px-2 mb-6 sm:px-4 py-2.5 {headerColors}">
 	<div class="w-full flex flex-wrap justify-between items-center">
 		<div class="inline flex">
 			{#if $layout.hasSidebar}
@@ -22,7 +21,7 @@
 				>
 			{/if}
 
-			<a href="/" class="inline flex items-center">
+			<a href="/app" class="inline flex items-center">
 				<span class=" text-xl font-bold whitespace-nowrap ">{appInfo.name}</span>
 			</a>
 		</div>
@@ -31,25 +30,11 @@
 			<ul
 				class="flex flex-col p-3 mt-5 rounded-lg border border-gray-100 md:flex-row md:space-x-12 md:mt-0 md:text-sm md:font-medium md:border-0"
 			>
-				{#if $theme.dark}
-					<button
-						class="bg-gray-50 text-black rounded-md px-3 py-2"
-						style="margin-top:-7px;"
-						on:click={toggleDarkMode}
-					>
-						<i class="fas fa-sun" />
-					</button>
-				{:else}
-					<button
-						class="bg-gray-500 text-gray-50 rounded-md px-3 py-2"
-						style="margin-top:-7px;"
-						on:click={toggleDarkMode}
-					>
-						<i class="fas fa-moon" />
-					</button>
+				{#if $layout.headerState.showDarkMode}
+					<DarkModeToggle />
 				{/if}
 
-				{#if pages}
+				{#if pages && $layout.headerState.showMenuItems}
 					{#each pages as link (link.link)}
 						{#if $user && link.auth}
 							<NavItem linkData={link} />

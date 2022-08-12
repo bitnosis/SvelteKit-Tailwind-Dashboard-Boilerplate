@@ -1,32 +1,42 @@
-<script>
-	import { SvelteToast } from '@zerodevx/svelte-toast';
-	// I put the options for toasts here so you can see how to customize if you want
-	/*const options = {
-		duration: 4000,
-		initial: 1,
-		next: 0,
-		pausable: false, // pause progress bar tween on mouse hover
-		dismissable: true, // allow dismiss with close button
-		reversed: false, // insert new toast to bottom of stack
-		intro: { x: 256 }, // toast intro fly animation settings
-		theme: {}, // css var overrides
-		classes: [] // user-defined classes
-	};*/
-	import '../style.css';
+<!-- SSR side checks for session -->
+<script context="module">
+	export async function load({ session }) {
+		if (session.user) {
+			return {
+				status: 302,
+				redirect: '/app'
+			};
+		}
+		return {};
+	}
 </script>
 
-<div class="theme-container ">
+<!-- Browser Render -->
+<script>
+	import '../style.css';
+	// Svelte
+	import { onMount } from 'svelte';
+	// Stores
+	import { supabase } from '$lib/api/supabaseClient';
+	import { logoutUser, setTheme } from '$lib/store/userStore';
+	// Components
+	import DarkModeToggle from '$lib/components/DarkModeToggle.svelte';
+
+	onMount(async () => {
+		setTheme();
+	});
+
+	const logout = async (e) => {
+		const { error } = await supabase.auth.signOut();
+		logoutUser();
+	};
+</script>
+
+<div>
 	<main>
+		<div class="float-right pr-16 py-5">
+			<DarkModeToggle />
+		</div>
 		<slot />
-		<SvelteToast options={{ reversed: true, intro: { y: 192 } }} />
 	</main>
 </div>
-
-<style>
-	:root {
-		--toastContainerTop: auto;
-		--toastContainerRight: 4rem;
-		--toastContainerBottom: 4rem;
-		--toastContainerLeft: calc(50vw - 8rem);
-	}
-</style>

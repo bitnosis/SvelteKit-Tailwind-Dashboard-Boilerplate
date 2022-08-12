@@ -1,12 +1,18 @@
 import preprocess from 'svelte-preprocess';
 import vercel from '@sveltejs/adapter-vercel';
 const dev = process.env.NODE_ENV === 'development';
+import tailwind from 'tailwindcss';
+import autoprefixer from 'autoprefixer';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
     // Consult https://github.com/sveltejs/svelte-preprocess
     // for more information about preprocessors
-    preprocess: preprocess(),
+    preprocess: preprocess({
+        postcss: {
+            plugins: [tailwind, autoprefixer]
+        }
+    }),
 
     kit: {
         // hydrate the <div id="svelte"> element in src/app.html
@@ -24,11 +30,6 @@ const config = {
             // instead of creating a single one for the entire app
             split: false
         }),
-        vite: {
-            define: {
-                'process.env': process.env
-            }
-        },
         /*
         vite: {
         	ssr: {
