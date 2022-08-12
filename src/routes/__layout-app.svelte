@@ -19,13 +19,12 @@
 	import { fly } from 'svelte/transition';
 	import { onMount } from 'svelte';
 	// Stores
-	import { layout, appInfo, toggleComponent, onKeyDown } from '$lib/store/appLayout.js';
-	import { user, updateUser } from '$lib/store/userStore.js';
+	import { layout, appInfo } from '$lib/store/appLayout.js';
+	import { updateUser } from '$lib/store/userStore.js';
 	// Components
 	import { SvelteToast } from '@zerodevx/svelte-toast';
 	import Navbar from '$lib/components/Navbar/Navbar.svelte';
 	import Sidebar from '$lib/components/Sidebar/Sidebar.svelte';
-	import WindowHandler from '$lib/components/WindowHandler.svelte';
 
 	// Props
 	export let session;
@@ -43,8 +42,6 @@
 	<meta name="robots" content="noindex nofollow" />
 	<html lang="en" />
 </svelte:head>
-<!-- Window resize and keydown listener component -->
-<WindowHandler />
 
 <main>
 	<div class="flex overflow-x-hidden h-screen">

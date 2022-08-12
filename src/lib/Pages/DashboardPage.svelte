@@ -20,7 +20,7 @@
 			<button
 				on:click={() => toggleComponent('header')}
 				class="rounded-md mb-2 bg-gray-200 p-4 py-1 "
-				>Header Toggle - Ctrl H
+				>Header Toggle
 			</button> <br />
 			<button
 				on:click={() => toggleComponent('headerHeight')}
@@ -31,12 +31,14 @@
 		<div>
 			<button
 				on:click={() => toggleComponent('sidebar')}
-				class="rounded-md bg-gray-200 mb-2 p-4 py-1 ">Sidebar Toggle - Ctrl A</button
-			> <br />
+				class="rounded-md bg-gray-200 mb-2 p-4 py-1 "
+				>Sidebar Toggle
+			</button> <br />
 			<button
 				on:click={() => toggleComponent('sidebarCollapse')}
-				class="rounded-md bg-gray-200 p-4 py-1 ">Sidebar Collapse - Ctrl F</button
-			>
+				class="rounded-md bg-gray-200 p-4 py-1 "
+				>Sidebar Collapse
+			</button>
 		</div>
 
 		<div>
